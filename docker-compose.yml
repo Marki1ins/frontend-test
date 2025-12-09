@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend/Dockerfile
+    ports:
+      - "4173:4173"
+    environment:
+      - VITE_API_URL=http://backend:5000
+      - VITE_BRASIL_API_URL=https://viacep.com.br
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend/Dockerfile
+    container_name: jsonserver
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./server/db.json:/app/db.json
