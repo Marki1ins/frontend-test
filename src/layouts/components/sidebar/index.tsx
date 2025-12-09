@@ -1,14 +1,23 @@
-import { Link } from "@tanstack/react-router";
-import "./index.css";
+import './index.css';
 
-import { FaAddressCard, FaNewspaper } from "react-icons/fa6";
-import { useState } from "react";
+import { Link } from '@tanstack/react-router';
+import { useState } from 'react';
+import { FaSignOutAlt } from 'react-icons/fa';
+import { FaAddressCard, FaNewspaper } from 'react-icons/fa6';
+
+import { useAuth } from '../../../hooks/useAuth';
 
 function SideBar() {
+  const { isAuthenticated } = useAuth();
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
   const handleItemClick = (item: string) => {
     setSelectedItem(item);
+  };
+
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    window.dispatchEvent(new Event("auth-change"));
   };
 
   return (
@@ -36,6 +45,18 @@ function SideBar() {
               <span className="tooltip">Notícias</span>
             </Link>
           </li>
+          {isAuthenticated && (
+            <li className="menu-item">
+              <Link
+                to="/login"
+                className={`menu-link ${selectedItem === "/news" ? "active" : ""}`}
+                onClick={handleLogOut}
+              >
+                <FaSignOutAlt className="icon-size" />
+                <span className="tooltip">Sair</span>
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </div>
