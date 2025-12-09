@@ -19,7 +19,6 @@ export function useAuth() {
       const fakeToken = "fake-jwt-token";
       localStorage.setItem("token", fakeToken);
 
-      // ✅ dispara evento manual
       window.dispatchEvent(new Event("auth-change"));
 
       return true;
@@ -30,7 +29,6 @@ export function useAuth() {
   const logout = () => {
     localStorage.removeItem("token");
 
-    // ✅ dispara evento manual
     window.dispatchEvent(new Event("auth-change"));
   };
 
