@@ -1,0 +1,35 @@
+.news-form {
+  margin-top: 15px;
+}
+
+.news-form div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.news-form input {
+  padding: 0.5rem;
+  outline: none;
+  border: 0.0625rem solid #acacac;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+}
+
+.news-form textarea {
+  padding: 0.5rem;
+  outline: none;
+  border: 0.0625rem solid #acacac;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+}
+
+.news-form span {
+  font-size: 12px;
+  color: red;
+}
+
+.news-form button {
+  width: 100%;
+}
