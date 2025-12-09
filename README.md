@@ -33,8 +33,8 @@ Este é o projeto frontend, desenvolvido com **React**, **Vite** e **TypeScript*
 Clone este repositório para sua máquina local:
 
 ```bash
-git clone https://github.com/Marki1ins/g4f-mre-front-end-test.git
-cd g4f-mre-front-end-test
+git clone https://github.com/Marki1ins/frontend-test.git
+cd frontend-test
 ```
 
 ### Passo 2: Configuração de variáveis de ambiente
